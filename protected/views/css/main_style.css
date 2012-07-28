@@ -1,0 +1,31 @@
+/* --- Start Clear --- */
+html					{ margin:0px;padding:0px;} /**/
+a					{ text-decoration: none;} /**/
+/* --- End Clear --- */
+/* -- start -- */
+p 					{border: 1px solid #666;overflow: hidden;padding: 10px 0;text-align: center;} /**/
+/* -- End -- */
+
+
+/* Divs Goes beyond this Line */
+#header_container	{ background: #fff; } /**/
+#top_header			{} /**/
+#mid_header			{} /**/
+#bot_header			{ background: #f4f4f4;} /* Main Menu Goes Here */
+
+
+#bar_container		{ border: 1px solid #ccc; } /**/
+#midbar				{ background: #f4f4f4; margin:0px; } /**/
+#rightbar			{ background: #f4f4f4; float: right; margin: 0px; } /**/
+
+#top_midbar			{margin: 0px;} /* Under midbar */
+#mid_midbar			{margin: 0px;} /* Under midbar */
+#bot_midbar			{margin: 0px;} /* Under midbar */
+
+#footer_container	{ background: #ccc; }
+#top_footer			{} /* footer Menu Goes Here */
+#mid_footer			{} /**/
+#bot_footer			{} /* Copyright Goes here */
+
+
+/* Classes Goes Beyond this Line */

@@ -1,0 +1,24 @@
+[+ config/database.php]
+[- protected/config/database.php]
+[- administrator/config/database.php]
+[CI/database/DB.php][line 32 - 39]
+
+		// Is the config file in the environment folder?
+		if ( ! defined('ENVIRONMENT') OR ! file_exists($file_path = APPATH.'config/'.ENVIRONMENT.'/database.php'))
+		{
+			if ( ! file_exists($file_path = APPATH.'config/database.php'))
+			{
+				show_error('The configuration file database.php does not exist.');
+			}
+		}
+		
+		Changed to...
+		
+		// Is the config file in the environment folder?
+		if ( ! defined('ENVIRONMENT') OR ! file_exists($file_path = dirname(BASEPATH).'/config/'.ENVIRONMENT.'/database.php'))
+		{
+			if ( ! file_exists($file_path = dirname(BASEPATH).'/config/database.php'))
+			{
+				show_error('The configuration file database.php does not exist.');
+			}
+		}
