@@ -23,75 +23,29 @@
 
 <li>
 <a href="#"><?php echo $this->lang->line('members') ?></a>
-<ul>
-<li>
-     <a href="#"><?php echo $this->lang->line('members') ?></a>
-     <ul>
-     <li><?php echo anchor('member', $this->lang->line('managed_member')); ?></li>
-     <li><?php echo anchor('member/create', $this->lang->line('add_new_member')); ?></li>
-     </ul>	
-</li>
-<li><a href="#aa">menu item that is quite long</a></li>
-</ul>
+    <ul>
+    <li>
+         <a href="#"><?php echo $this->lang->line('managed_member') ?></a>
+         <ul>
+            <li><?php echo anchor('member/create', $this->lang->line('add_new_account')); ?></li>
+         </ul>	
+    </li>
+    </ul>
 </li>
 
 
 <li>
-				<a href="#">menu item</a>
+				<a href="#">Branch</a>
 				<ul>
 					<li>
-						<a href="#">menu item</a>
+						<a href="#"><?php echo $this->lang->line('branch_manager') ?></a>
 						<ul>
-							<li><a href="#">short</a></li>
-							<li><a href="#">short</a></li>
-							<li><a href="#">short</a></li>
-							<li><a href="#">short</a></li>
-							<li><a href="#">short</a></li>
+							<li><?php echo anchor('branch', $this->lang->line('add_new_branch')); ?></li>
 						</ul>
 					</li>
-					<li>
-						<a href="#">menu item</a>
-						<ul>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">menu item</a>
-						<ul>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">menu item</a>
-						<ul>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">menu item</a>
-						<ul>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-							<li><a href="#">menu item</a></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="#">menu item</a>
-			</li>	
-		</ul>
+                </ul>
+					
+</li>
+</ul>
+	
+		

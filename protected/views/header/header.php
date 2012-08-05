@@ -41,11 +41,11 @@ echo "\n";
 <title><?php echo $this->config->item('site_name') ?> - Administration </title>
 <?php
 foreach ($media_javascripts as $scripts) {
-	echo '<script type="text/javascript" src="' . $this->config->item('public_url') .
+	echo '<script type="text/javascript" src="' . $this->config->base_url() .
 		'media/' . $scripts . '.js" ></script>';
 	echo "\n";
 }
 echo '<!-- End of GTemplates -->';
 
 /* End of File */
-/* Location: application/views/include/header.inc */
+/* Location: protected/views/include/header.inc */

@@ -1,37 +1,42 @@
 #loginContainer{
 	margin: 0 auto;
-	width: 200px;
-	height: 200px;
+	width: 488px;
+	height: 284px;
+	background: url('../images/login_bg.png');
+	margin-top: 150px;
+	overflow: hidden;
 }
 #frmLogin{
-
+	margin: 99px 0px 0px 178px;
+	
 }
 
 input,textarea,select   { 
 border: solid 1px #E5E5E5; 
 outline: 0; 
-background:#FFFFFF url('../bg_form.png') left top repeat-x; 
-background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF),
-	color-stop(4%, #EEEEEE), to(#FFFFFF)); 
-background: -moz-linear-gradient(top, #FFFFFF, 
- #EEEEEE 1px, #FFFFFF 25px); 
+background:#e1e2e3 url('../bg_form.png') left top repeat-x; 
+background: -webkit-gradient(linear, left top, left 25, from(#e1e2e3),
+	color-stop(4%, #EEEEEE), to(#e1e2e3)); 
+background: -moz-linear-gradient(top, #e1e2e3, 
+ #EEEEEE 1px, #e1e2e3 25px); 
 	 box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
 	 -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
 	 -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	 border: 1px solid #ccc;
 }
-#loginCon   { 
-	padding: 50px 0px 0px 0px; 
-	background: url('../images/login-bg.png') no-repeat; 
-	width: 433px; 
-	height: 293px; 
-}
-input#login { 
-	background: #000 url('../images/btn_bg.png') repeat-x; 
+
+input#login {
+	width: 124px;
+	height: 33px;
+	background:  url('../images/sign_in.png'); 
 	color: #fff; 
 	cursor: pointer; 
-	border: 0px;}
+	border: 0px;
+	margin-top: 30px;
+	margin-left: 135px;
+	}
 input#login:hover  { 
-	background: #000; 
+	background: url('../images/sign_in.png');
 }
 input#login { 
 	-moz-border-radius: 5px 5px 5px 5px;     
@@ -42,6 +47,10 @@ input,textarea {
 	-moz-border-radius: 5px 5px 5px 5px;     
 	-webkit-border-radius: 5px 5px 5px 5px; 
 }
+input.username{ width: 244px; }
+input.password{ width: 244px; }
+.clicked { color: #ccc;}
+
 #form_lbl               { font-weight: bold; color: #4c4c4c; }
 
 /* Mr. Hover Shadow  */
@@ -55,6 +64,14 @@ input:focus ,
 textarea:focus         {-moz-box-shadow: rgba(0,0,0, 0.2) 0px 0px 8px; -webkit-box-shadow: rgba(0,0,0, 0.2) 0px 0px 8px}
 
 .Frmbtn                 { padding: 10px; }
-.Gform td				{ width: 250px; padding: 10px;}
+.Gform                  { margin-top: -35px; }
+.Gform td				{ width: 250px; padding: 10px; }
 .Gform td#tip 			{ width: 200px; font-size: 11px; color:#808080; font-style: italic;}
 
+#footer{
+	width: 520px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 90px;
+	font-size: 10px;
+}

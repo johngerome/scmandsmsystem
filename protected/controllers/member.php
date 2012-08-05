@@ -10,7 +10,7 @@ class Member extends CI_Controller
 		$this->load->model('member_model');
 		$this->load->model('account_model');
 		 // CJAX
-        $this->load->file(FCPATH.'ajaxfw.php');
+        //$this->load->file(FCPATH.'ajaxfw.php');
 
 	}
 
@@ -44,7 +44,7 @@ class Member extends CI_Controller
 	{
 
 		// Heading Title
-		$this->gtemplate->HeadingTitle($this->lang->line('add_new_member'));
+		$this->gtemplate->HeadingTitle($this->lang->line('add_new_account'));
        //$this->gtemplate->load_view('member/create');
 
 		if($this->input->post('member')) {
@@ -52,7 +52,7 @@ class Member extends CI_Controller
 			$this->form_validation->set_rules('password', 'Password', 'required|max_length[32]|min_length[3]|xss_clean');
 			$this->form_validation->set_rules('password2', 'Password Confirmation',
 				'required|matches[password]|max_length[32]|min_length[3]|xss_clean');
-			$this->form_validation->set_rules('email', 'Email Address', 'required|xss_clean|valid_email|is_unique[' .
+			$this->form_validation->set_rules('username', 'Username', 'required|xss_clean|valid_email|is_unique[' .
 				$this->db->dbprefix('member') . '.email_address]');
 			$this->form_validation->set_rules('first_name', 'First Name',
 				'required|xss_clean');

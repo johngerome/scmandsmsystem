@@ -14,9 +14,9 @@
 | path to your installation.
 |
 */
-$config['public_url'] = 'http://localhost/gsystem/';
+$config['theme_path'] = 'http://localhost/scmandsmsystem/protected';
 
-$config['base_url'] = 'http://localhost/gsystem/administrator/';
+$config['base_url'] = 'http://localhost/scmandsmsystem/';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -358,7 +358,8 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 //$config['view_path'] = 'gerome.bookstore/'.APPPATH.'views/';
-$config['site_name'] = 'Sales Monitoring and Inventory System';
+$config['site_name'] = 'Supply Chain Management and Sales Monitoring System';
+$config['copyrighted'] = '2012';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */                

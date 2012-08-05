@@ -7,10 +7,15 @@ $lang['my_dashboard'] = 'My Dashboard';
 $lang['my_profile'] = 'My Profile';
 $lang['system_information'] = 'System Information';
 $lang['global_configuration'] = 'Global Configuration';
-$lang['members'] = 'Members';
-$lang['managed_member'] = 'Managed Members';
-$lang['add_new_member'] = 'Add New Member';
+$lang['members'] = 'User Accounts';
+$lang['managed_member'] = 'Managed Accounts';
+// $lang['managed_group'] = 'Managed Group Accounts'; removed
+$lang['add_new_account'] = 'Add New User';
+// $lang['add_new_group'] = 'Add New Group'; removed
 $lang['logout'] = 'log out';
+$lang['add_new_branch'] = 'Add New Branch';
+$lang['branch_manager'] = 'Branch Manager';
+
 
 // Register New Member
 $lang['username'] = 'Username';
@@ -21,7 +26,7 @@ $lang['login_to_continue'] = 'Please Log in to continue';
 /* Form language */
 //Login
 $lang['heading_login']	=	'Administration Login';
-$lang['lbl_email_address'] = 'Email Address';
+$lang['lbl_username'] = 'Username';
 $lang['lbl_password'] = 'Password';
 $lang['btn_login'] = 'log In';
 
@@ -62,7 +67,11 @@ $lang['include_users_password'] = 'Includes Users Password';
 $lang['yes'] = 'Yes';
 $lang['no'] = 'No';
 
-
+//create Branch
+$lang['branch_name'] = 'Branch Name';
+$lang['location'] = 'Location';
+$lang['branch_manager'] = 'Branch Manager';
+$lang['branch_cashier'] = 'Branch Cashier';
 
 //Global Configuration
 $lang['global_configuration'] = 'Global Configuration';
@@ -88,4 +97,9 @@ $lang['enable_hooks'] = 'Enable System Hooks';
 $lang['permitted_uri_chars'] = 'Allowed URL Characters';
 $lang['edit'] = 'Edit';
 $lang['update'] = 'Update';
+
+//other
+$lang['bakery'] = 'Bakery';
+
+
 

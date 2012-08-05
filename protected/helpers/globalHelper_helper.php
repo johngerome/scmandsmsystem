@@ -17,10 +17,10 @@
 
 
       $uri = uri_string();
-      $email_address = $CI->session->userdata('email');
+      $email_address = $CI->session->userdata('username');
       $tbl_group = $CI->db->dbprefix('group');
       $tbl_access = $CI->db->dbprefix('access');
-      $tbl_member = $CI->db->dbprefix('member');
+      $tbl_member = $CI->db->dbprefix('account');
 
       // Count total Segments
       $uri_array = $CI->uri->total_segments();
@@ -52,7 +52,7 @@
       $qry = "SELECT `level` FROM `{$tbl_group}`
                 JOIN `{$tbl_member}`
                 ON `{$tbl_group}`.group_id = `{$tbl_member}`.group_id
-                WHERE `email_address` = ? ";
+                WHERE `username` = ? ";
       $query = $CI->db->query($qry, array($email_address));
       $result = $query->row_array();
       // if the Query Result is null it means the user who browse the page is a Guest
@@ -71,18 +71,19 @@
       if ($page_group_level != 0)
       {
           // Check if the user has not bein' login
-          if (is_loggedin() != true)
+          if (is_loggedin() != TRUE)
           {
               // Display Login Page
-              $data['hide_menu'] = true; // hide Main menu
-              $CI->gtemplate->set_breadCrumbs(false); // Hide BreadCrumbs
+              //$data['hide_menu'] = true; // hide Main menu
+              //$CI->gtemplate->set_breadCrumbs(false); // Hide BreadCrumbs
 
               //$CI->gtemplate->HeadingTitle('a');
+             
+              redirect('account/login');
 
-              $CI->load->view('views/account/login');
-
-              return false;
+              return FALSE;
           }
+          
       }
 
       // Check the page level. If the users has rights to view it.
@@ -90,7 +91,7 @@
       // display Error Page.
       if ($page_group_level > $user_group_level)
       { // Disallow Access
-          show_error('You don\'t have the Previlages to access this page!');
+          show_error('You don\'t have the Privileges to access this page!');
           exit;
       }
 
@@ -98,7 +99,7 @@
       foreach ($session as $value => $m) {
       echo $value . '=' . $m . '<br/>';
       }*/
-      return true;
+      return TRUE;
   }
 
 
@@ -111,12 +112,12 @@
   function is_loggedin()
   {
       $CI = &get_instance();
-      if ($CI->session->userdata('logged_in') == true)
+      if ($CI->session->userdata('logged_in') == TRUE)
       {
-          return true;
+          return TRUE;
       } else
       {
-          return false;
+          return FALSE;
       }
   }
 

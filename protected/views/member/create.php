@@ -13,7 +13,7 @@
 <form  method="POST" id="formID_create">
 <table class="form">
     <tr>
-        <td id="form_lbl"><?php echo $this->lang->line('lbl_email_address') ?><b id="required_symbol">*</b></td>
+        <td id="form_lbl"><?php echo $this->lang->line('lbl_username') ?><b id="required_symbol">*</b></td>
         <td><input type="text" id="email" name="email" value="<?php echo set_value('email'); ?>" />
         <?php echo form_error('email','<span id="error">','</span>'); ?>
         </td>

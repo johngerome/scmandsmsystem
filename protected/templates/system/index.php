@@ -7,8 +7,13 @@
 <?php $this->gtemplate->load_template();  ?>
 
 
+
 <?php echo link_tag($this->gtemplate->theme_path('superfish/css/superfish.css')); echo "\n"; ?>
-<?php echo link_tag($this->gtemplate->theme_path('megaWebButtons/css/buttons.css')); echo "\n"; ?>
+<?php //echo link_tag($this->gtemplate->theme_path('megaWebButtons/css/buttons.css')); echo "\n"; ?>
+
+<!-- Tangy Buttons -->
+<?php echo link_tag($this->gtemplate->theme_path('tangy_buttons/css/style.css')); echo "\n"; ?>
+
 <?php echo link_tag($this->gtemplate->theme_path('css/reset.css')); echo "\n"; ?>
 <?php echo link_tag($this->gtemplate->theme_path('css/text.css')); echo "\n"; ?>
 <?php echo link_tag($this->gtemplate->theme_path('css/960_24_col.css')); echo "\n"; ?>
@@ -34,10 +39,12 @@ jQuery(function(){jQuery('ul.sf-menu').superfish();});
 
 <div id="headerContainer">
 		<div id="topHeader">
+        
+        <?php $this->gtemplate->get_top_header(); ?>
         </div>
 		<div id="midHeader">
         <?php  echo img($this->gtemplate->theme_path('images/banner.png')); ?>
-        <form>
+        <form method="post" action="">
             <div id="searchCon">
                 <input class="style_i" type="text" value="Search..." />
             </div>
@@ -50,15 +57,15 @@ jQuery(function(){jQuery('ul.sf-menu').superfish();});
 	</div>
 
 	<div id="centerContainer">
-    <div id="wrapper">
-    <div id="wrapper">
-        <div id="breadcrumbs">
+    <div class="wrapper">
+    <div class="wrapper">
+        <div class="breadcrumbs">
             <?php $this->gtemplate->get_breadCrumbs(); ?>
         </div>
         
-         <h1 id="headingTitle">
-         <?php  $this->gtemplate->HeadingTitle(); ?>
-         </h1>
+        <!-- <h1 id="headingTitle"> -->
+         <?php  // $this->gtemplate->HeadingTitle(); ?>
+         <!-- </h1> -->
          
             <!-- Toolbar -->
             <?php $this->gtemplate->get_toolbar(); ?>
@@ -68,7 +75,7 @@ jQuery(function(){jQuery('ul.sf-menu').superfish();});
             <?php $this->gtemplate->get_content(); ?>
             
             
-        <div id="breadcrumbs">
+        <div class="breadcrumbs">
             <?php $this->gtemplate->get_breadCrumbs(); ?>
         </div>
         
@@ -77,7 +84,14 @@ jQuery(function(){jQuery('ul.sf-menu').superfish();});
 </div>    
     		
 <div id="footerContainer">
-       <p>&copy;<?php echo date('Y');?>Gerome</p>
+       <p>&copy;<?php 
+       if($this->config->item('copyrighted') == date('Y')){
+        echo $this->config->item('copyrighted');
+       }else{
+        echo $this->config->item('copyrighted').'-'.date('Y');
+       }
+       ?>&nbsp;<?php echo $this->config->item('site_name') ?></p>
+</div>
 </div>
 </body>
 </html>

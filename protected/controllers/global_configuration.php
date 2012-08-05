@@ -8,7 +8,7 @@ class Global_Configuration extends CI_Controller
 		parent::__construct();
 		//$this->load->model('account_model');
 		// BreadCrumb
-		$this->registry->set_breadCrumbs(true);
+		$this->gtemplate->set_breadCrumbs(true);
 
 	}
 
@@ -16,7 +16,7 @@ class Global_Configuration extends CI_Controller
 	{
 
 		// set heading
-		$this->registry->HeadingTitle($this->lang->line('global_configuration'));
+		$this->gtemplate->HeadingTitle($this->lang->line('global_configuration'));
         
         // Set Content
         $data['content'] = 'global_configuration/index';
@@ -30,7 +30,7 @@ class Global_Configuration extends CI_Controller
 		// load Toolbar
 		$this->gtemplate->set_toolbar('global_configuration_index');
 		// set heading
-		$this->registry->HeadingTitle($this->lang->line('global_configuration') .
+		$this->gtemplate->HeadingTitle($this->lang->line('global_configuration') .
 			' : [' . $this->lang->line('site') . ']');
             
 	//	$this->load->view('index',$data);
@@ -43,7 +43,7 @@ class Global_Configuration extends CI_Controller
 		// load Toolbar
 		$this->gtemplate->set_toolbar('global_configuration_system');
 		// set heading
-		$this->registry->HeadingTitle($this->lang->line('global_configuration') .
+		$this->gtemplate->HeadingTitle($this->lang->line('global_configuration') .
 			' : [' . $this->lang->line('system') . ']');
             
         $this->gtemplate->load_view('global_configuration/system');

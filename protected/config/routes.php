@@ -46,21 +46,27 @@ $route['account'] = 'account/index';
 $route['account/dashboard'] = 'account/index';
 $route['account/my_profile'] = 'account/my_profile';
 $route['account/login'] = 'account/login';
-$route['account/login/login_to_continue'] = 'account/login';
-$route['account/login/(:any)'] = 'error';
+//$route['account/login/login_to_continue'] = 'account/login';
+//$route['account/login/(:any)'] = 'error';
 $route['account/logout'] = 'account/logout';
 
 // Member
 $route['member/create'] = 'member/create';
 
+//Branch
+$route['branch'] = 'branch/index';
+$route['branch/bakery'] = 'branch/bakery';
+$route['branch/eggstore'] = 'branch/eggstore';
+
+$route['branch/add/(:any)'] = 'branch/add/$1';
 
 //Global Configuration
 $route['global_configuration/site'] = 'Global_Configuration/site';
 $route['global_configuration/system'] = 'Global_Configuration/system';
 $route['global_configuration'] = 'Global_Configuration/index';
 
-$route['books/(:any)'] = 'books/view/$1';
-$route['books'] = 'books';
+//$route['books/(:any)'] = 'books/view/$1';
+//$route['books'] = 'books';
 
 
 
