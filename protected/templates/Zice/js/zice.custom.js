@@ -1,3 +1,5 @@
+var deleted;
+
 $.fn.imgdata = function(key){
 	return this.find('.dataImg li:eq('+key+')').text();
 }
@@ -59,16 +61,23 @@ var buttonActions = {
 }
 
 $(document).ready(function(){	
-
+    
 	// NewsUpdate
 	$('#news_update').vTicker({ 
-		speed: 500,
+		speed: 1000,
 		pause: 3000,
 		animation: 'fade',
 		mousePause: true,
 		showItems: 2
 	});
-	  
+		// NewsUpdate
+	$('#customer_update').vTicker({ 
+		speed: 1000,
+		pause: 3000,
+		animation: 'fade',
+		mousePause: true,
+		showItems: 2
+	});  
 	// tabs
 	$("ul.tabs li").fadeIn(400); 
 	$("ul.tabs li:first").addClass("active").fadeIn(400); 
@@ -103,6 +112,20 @@ $(document).ready(function(){
 		"aaSorting": [],
 		"aoColumns": [ { "bSortable": false },{ "bSortable": false } ]
 	});
+	$('.static3').dataTable({
+		"sDom": '',
+		"aaSorting": [],
+        "aoColumns": [
+					{ "bSortable": false },{ "bSortable": false },{ "bSortable": false }
+	  ]
+	});
+    $('.static5').dataTable({
+		"sDom": '',
+		"aaSorting": [],
+        "aoColumns": [
+					{ "bSortable": false },{ "bSortable": false },{ "bSortable": false },{ "bSortable": false },{ "bSortable": false }
+	  ]
+	});
 	$('.static').dataTable({
 		"sDom": '',
 		"aaSorting": [],
@@ -115,17 +138,124 @@ $(document).ready(function(){
 	"sPaginationType": "full_numbers",
 	 "aaSorting": [],
 	  "aoColumns": [
-					{ "bSortable": false },null,null,null,null
+					null,null,null,null,null
 	  ]
 	});
+    
+    $('.data_table2_1').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+	"sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	  "aoColumns": [
+					{ "bSortable": false },null,null
+	  ]
+	});
+    
+    $('.data_table1_2').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+    "aaSorting": [],
+    "aoColumns": [
+					null,null,{ "bSortable": false }
+	  ]
+	});
+    
 	$('.data_table3').dataTable({
 	"sDom": 'fCl<"clear">rtip',
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
+    $('.data_table3_1').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	  "aoColumns": [
+					{ "bSortable": false },null,null,null
+	  ]
+	});
+    
+    $('.data_table_branch_type').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
+    $('.data_table4').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
+    //
+     $('.data_table4_1').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
 	 "aaSorting": [],
 	  "aoColumns": [
 					{ "bSortable": false },null,null,null,{ "bSortable": false }
 	  ]
 	});
-	
+    
+	$('.data_table5').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
+   	$('.data_table5_1').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
+    //
+     $('.data_table6_1').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
+    //
+     $('.data_table7_1').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
+    //
+     $('.data_table8_1').dataTable({
+	"sDom": 'fCl<"clear">rtip',
+    "sPaginationType": "full_numbers",
+	 "aaSorting": [],
+	 "aaSorting": [],
+	  "aoColumns": [
+					null,null,null,null,null,null,null,{ "bSortable": false }
+	  ]
+	});
+    
 	// input editor
 	$("#editor,#editor2").cleditor();	
 	
@@ -215,8 +345,8 @@ $(function() {
   	//datepicker
 	$("input.datepicker").datepicker({ 
 		autoSize: true,
-		appendText: '(dd-mm-yyyy)',
-		dateFormat: 'dd-mm-yy'
+		appendText: '(mm/dd/yyyy)',
+		dateFormat: 'mm/dd/yy'
 	});
 	$( "div.datepickerInline" ).datepicker({ 
 		dateFormat: 'dd-mm-yy',
@@ -284,30 +414,244 @@ $(function() {
 	 });
 	
 	// submit form 
-	$('a.submit_form').live('click',function(){
+	/*$('#save_usertype').live('click',function(){
 		  var form_id=$(this).parents('form').attr('id');
 		  $("#"+form_id).submit();
-	})	
+	})*/
+    
 
 	// logout  
 	$('.logout').live('click',function() { 
-		  var str="Logout"; 
-		  var overlay="1"; 
-		  loading(str,overlay);
-		  setTimeout("unloading()",1500);
-		  setTimeout( "window.location.href='index.html'", 2000 );
+		  //var str="Logout"; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "account/logout'", 0 );
 	  });
-		
+	// User Settings  
+	//$('.setting').live('click',function() { 
+//		//  var str="Loading.."; 
+//		//  var overlay="1"; 
+//		//  loading(str,overlay);
+//		 // setTimeout("unloading()",1500);
+//		  setTimeout( "window.location.href='" + base_url + "account/my_profile.html'");
+//	  });
+    //link_dashboard
+    $('.link_dashboard').live('click',function() { 
+		 // var str="Loading.."; 
+		 // var overlay="1"; 
+		 // loading(str,overlay);
+		 // setTimeout("unloading()",1500);
+ 
+		  setTimeout( "window.location.href='" + base_url + "'");
+          
+	  });
+      
+   //link_user
+    $('.link_user').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "account.html'");
+	  });
+    //link_branch
+    $('.link_branch').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "branch.html'");
+	  });
+      
+      //link_branch_type
+    $('.link_branch_type').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "branch_type.html'");
+	  });
+      
+      // Managed_categories     
+    $('.managed_categories').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		 // loading(str,overlay);
+		 // setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "categories.html'");
+	  });
+           // Managed_categories     
+    $('.managed_customer').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "customer.html'");
+	  });
+      //link_add_user
+      $('.link_add_user').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "account/add_user.html'");
+	  });
+      
+      //link_add_user
+      $('.link_user_type').live('click',function() { 
+		  ///var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		 // setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "user_type.html'");
+	  });
+      
+       //Product/Catalog 
+      $('.managed_products').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/index.html'");
+          
+	  });
+      //Stock In
+      $('.lnk_stock_in').live('click',function() { 
+		  setTimeout( "window.location.href='" + base_url + "product/stock_in.html'");
+	  });
+      
+      //managed_product_line
+      $('.managed_product_line').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product_line/index.html'");
+      });
+      //notifacation
+      $('.notifacation').live('click',function() { 
+		 // var str="Loading.."; 
+		 // var overlay="1"; 
+		 // loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "notification.html'");
+	  });
+      //reports
+      $('.reports').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "reports.html'");
+	  });
+      //reports
+      $('.backup').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "tools/backup.html'");
+	  });
+      
+      //product_availability
+      $('.product_availability').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/availability.html'");
+	  });
+    //product_re_order
+    $('.product_re_order').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/re_order_list.html'");
+	  });
+    //product_package
+    $('.managed_package').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "package.html'");
+	  });
+    
+    //product_package
+    $('.managed_product_package').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product_package.html'");
+	  });
+   //back_order_list   
+     $('.back_order_list').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/back_order_list.html'");
+	  }); 
+      
+   //damaged_products
+   $('.damaged_products').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/damage_products.html'");
+	  });
+   //configuration
+   $('.configuration').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "system.html'");
+    });
+   //inventory_summary
+   $('.inventory_summary').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/inventory_summary.html'");
+    });
+  //managed_pricing_scheme
+  $('.managed_pricing_scheme').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/pricing_scheme.html'");
+    });    
+   //expiry_product
+  $('.expiry_product').live('click',function() { 
+		  //var str="Loading.."; 
+		  //var overlay="1"; 
+		  //loading(str,overlay);
+		  //setTimeout("unloading()",1500);
+		  setTimeout( "window.location.href='" + base_url + "product/expire.html'");
+    });      
+      
 	// wizard 
 	 $('#wizard').smartWizard();
 	 
 	// tipsy tootip
-	$('.tip a ').tipsy({gravity: 's',live: true});	
+    $('.ntip').tipsy({gravity: 'n',live: true});
+    $('.tip').tipsy({gravity: 's',live: true});
+    $('.netip').tipsy({gravity: 'ne',live: true});
+    
+	$('.tip a ').tipsy({gravity: 's',live: true});
 	$('.ntip a ').tipsy({gravity: 'n',live: true});	
 	$('.wtip a ').tipsy({gravity: 'w',live: true});	
 	$('.etip a,.Base').tipsy({gravity: 'e',live: true});	
 	$('.netip a ').tipsy({gravity: 'ne',live: true});	
 	$('.nwtip a , .setting').tipsy({gravity: 'nw',live: true});	
+    $('.nwtip a , .notification').tipsy({gravity: 'nw',live: true});	
 	$('.swtip a,.iconmenu li a ').tipsy({gravity: 'sw',live: true});	
 	$('.setip a ').tipsy({gravity: 'se',live: true});	
 	$('.wtip input').tipsy({ trigger: 'focus', gravity: 'w',live: true });
@@ -604,8 +948,8 @@ $(function() {
 
 
 	// checkbox,selectbox customInput 
-	 $('input[placeholder], textarea[placeholder]').placeholder();
-	$('.ck,.chkbox,.checkAll ,input:radio').customInput();	
+    $('input[placeholder], textarea[placeholder]').placeholder();
+	$('.ck,.chkbox,.checkAll ,.branch_checkAll1 ,.branch_checkAll2 ,input:radio').customInput();	
 	$('.limit3m').limitInput({max:3,disablelabels:true});
 	// select boxes
 	$(function() {
@@ -668,9 +1012,41 @@ $(function() {
 					$(this).attr('checked', $('.' + id).is(''));
 					$('label[for='+$(this).attr('id')+']').removeClass('checked ');
 					}
+		});
+	});	
+    	
+	 // checkbox 1 All in Table
+	$(".branch_checkAll1").live('click',function(){
+		  var table=$(this).parents('table').attr('id');
+		  var checkedStatus = this.checked;
+		  var id= this.id;
+		 $( "table#"+table+" tbody tr td:first-child input:checkbox").each(function() {
+			this.checked = checkedStatus;
+				if (this.checked) {
+					$(this).attr('checked', $('.' + id).is(':checked'));
+					$('label[for='+$(this).attr('id')+']').addClass('checked ');
+				}else{
+					$(this).attr('checked', $('.' + id).is(''));
+					$('label[for='+$(this).attr('id')+']').removeClass('checked ');
+					}
 		});	 
-	});		
-	
+	});	
+	 // checkbox 2 All in Table
+	$(".branch_checkAll2").live('click',function(){
+		  var table=$(this).parents('table').attr('id');
+		  var checkedStatus = this.checked;
+		  var id= this.id;
+		 $( "table#"+table+" tbody tr td:first-child input:checkbox").each(function() {
+			this.checked = checkedStatus;
+				if (this.checked) {
+					$(this).attr('checked', $('.' + id).is(':checked'));
+					$('label[for='+$(this).attr('id')+']').addClass('checked ');
+				}else{
+					$(this).attr('checked', $('.' + id).is(''));
+					$('label[for='+$(this).attr('id')+']').removeClass('checked ');
+					}
+		});	 
+	});	
 
 	
 	// ShowCode 
@@ -690,16 +1066,17 @@ $(function() {
 		  var name=$(this).find('img').attr('alt');
 		  $(this).find('img').attr('src','images/icon/gray_18/'+name+'.png');
 	 })
+     
 	// icon  Logout 
 	$('div.logout').hover(function(){
 		  var name=$(this).find('img').attr('alt');
 		  $(this).find('img').animate({ opacity: 0.4 }, 200, function(){
-			    $(this).attr('src','images/'+name+'.png').animate({ opacity: 1 }, 500);									 
+			    $(this).attr('src',template_url + 'images/'+name+'.png').animate({ opacity: 1 }, 500);									 
 		 });
 	},function(){
 		  var name=$(this).find('img').attr('name');
 		  $(this).find('img').animate({ opacity: 0.5 }, 200, function(){
-			    $(this).attr('src','images/'+name+'.png').animate({ opacity: 1 }, 500);									 
+			    $(this).attr('src',template_url + 'images/'+name+'.png').animate({ opacity: 1 }, 500);									 
 		 });
 	 })
 	// icon  setting 
@@ -782,8 +1159,10 @@ $(function() {
 		'action': function(){
 					loading('Deleting',1);
 						   ui.helper.fadeOut(function(){ ui.helper.remove(); 
-						  setTimeout("unloading()",1500); 	
+						   setTimeout("unloading()",1500); 	
 					});
+                    //Delete
+                    delete_data();
 			}},'No'	: {'class'	: ''}}});
 		},
 		tolerance:'pointer'
@@ -835,7 +1214,7 @@ $(function() {
 		  $('img#photo3').removeClass('rotate3');
 	});
 	
-	$('.msg').live({
+/*	$('.msg').live({
         mouseenter: function(){
 			$(this).find('.toolMsg').show();
            },mouseleave: function(){
@@ -843,7 +1222,7 @@ $(function() {
            }
        }
     );
-	
+*/	
 
 	// filemanager. 
 	// onload
@@ -880,6 +1259,16 @@ $(function() {
 		  var name = $(this).attr("name");
 		  var data ='id='+id;
 		  Delete(data,name,row,0,dataSet);
+          
+	});
+	// Confirm Restore.
+	$(".Restore").live('click',function() { 
+		  var row=$(this).parents('tr');
+		  var dataSet=$(this).parents('form');
+		  var id = $(this).attr("id");
+		  var name = $(this).attr("name");
+		  var data ='id='+id;
+		  Restore(data,name,row,0,dataSet);
 	});
 	$(".DeleteAll").live('click',function() {			
 		  var rel=$(this).attr('rel');	
@@ -897,7 +1286,7 @@ $(function() {
 	
 	
 	// Overlay form
-	$(".on_load").live('click',function(){	
+	$(".on_load").live('click',function(){
 		$('body').append('<div id="overlay"></div>');
 		$('#overlay').css('opacity',0.4).fadeIn(400);
 		var activeLoad = $(this).attr("name");		
@@ -913,14 +1302,80 @@ $(function() {
 		$('.onecolumn .content').css({'position':'relative','z-index':'1001'});
 		$(".load_page").hide();
 		$('.show_add').show();
+        //Show Add Form
+        
 	 });
+ 	// Overlay form
+	$(".on_load2").live('click',function(){	
+		$('body').append('<div id="overlay"></div>');
+		$('#overlay').css('opacity',0.4).fadeIn(400);
+		var activeLoad = $(this).attr("name");		
+		var titleTabs = $(this).attr("title");		
+		$("ul.tabs li").hide();		
+				$('ul.tabs li').each(function(index) {
+						var activeTab = $('ul.tabs li:eq('+index+')').find("a").attr("href")			
+						if(activeTab==activeLoad){
+							$("ul.tabs ").append('<li class=active><a>'+titleTabs+'</a></li>');
+							$("ul.tabs li:last").fadeIn();	
+							}
+				});
+		$('.onecolumn .content').css({'position':'relative','z-index':'1001'});
+		$(".show_add").hide();
+ 	    $(".load_page").hide();
+		$('.show_add2').show();
+	 });
+     
+     // Overlay form
+	$(".on_load_edit").live('click',function(){	
+		$('body').append('<div id="overlay"></div>');
+		$('#overlay').css('opacity',0.4).fadeIn(400);
+		var activeLoad = $(this).attr("name");		
+		var titleTabs = $(this).attr("title");		
+		$("ul.tabs li").hide();		
+				$('ul.tabs li').each(function(index) {
+						var activeTab = $('ul.tabs li:eq('+index+')').find("a").attr("href")			
+						if(activeTab==activeLoad){
+							$("ul.tabs ").append('<li class=active><a>'+titleTabs+'</a></li>');
+							$("ul.tabs li:last").fadeIn();	
+							}
+				});
+		$('.onecolumn .content').css({'position':'relative','z-index':'1001'});
+		$(".show_add").hide();
+ 	    $(".load_page").hide();
+		$('.show_add').show();
+	 });
+     
+     // Overlay form
+	$(".on_load_edit_product_line").live('click',function(){
+	   
+		$('body').append('<div id="overlay"></div>');
+		$('#overlay').css('opacity',0.4).fadeIn(400);
+		var activeLoad = $(this).attr("name");		
+		var titleTabs = $(this).attr("title");		
+		$("ul.tabs li").hide();		
+				$('ul.tabs li').each(function(index) {
+						var activeTab = $('ul.tabs li:eq('+index+')').find("a").attr("href")			
+						if(activeTab==activeLoad){
+							$("ul.tabs ").append('<li class=active><a>'+titleTabs+'</a></li>');
+							$("ul.tabs li:last").fadeIn();	
+							}
+				});
+		$('.onecolumn .content').css({'position':'relative','z-index':'1001'});
+		$(".show_add").hide();
+ 	    $(".load_page").hide();
+        $(".show_edit").empty();
+        
+       
+	 });
+     
+     
 	$(".on_prev").live('click',function(){	 
 		  $("ul.tabs li:last").remove();					 
 		  $("ul.tabs li").fadeIn();
 		  var pageLoad = $(this).attr("rel");	
 		  var activeLoad = $(this).attr("name");		
-			$(".show_add, .show_edit").hide();		
-			$(".show_edit").html('').hide();		
+			$(".show_add ,.show_add2 ,.show_edit").hide();		
+			//$(".show_edit").html('').hide();		
 				$(activeLoad).fadeIn();	
 						$(' .load_page').fadeIn(400,function(){   
 							   $('#overlay').fadeOut(function(){
@@ -992,8 +1447,8 @@ $(function() {
             colors: colors
         }, { xaxis: {   tickSize: 1 },
 			yaxis: {
-				 max: 1000,
-				min:0,
+				 max: 5000,
+				 min:0,
             },	series: {
 				points: {show: true },
                 lines: { show: true, fill: true, steps: false },
@@ -1010,7 +1465,7 @@ $(function() {
         }, {  xaxis: {  tickSize: 1,  },
 			yaxis: {
 				 max: 1000,
-				min:200,
+				min:100,
             }	,	series: {
 				points: {show: true },
                 lines: { show: true, fill: true, steps: false },
@@ -1186,22 +1641,65 @@ $(function() {
 			})							   
 	  }
 		  
-function Delete(data,name,row,type,dataSet){
+function Delete(data,name,row,type,dataSet,controller_name,function_name,current_url){
 		var loadpage = dataSet.hdata(0);
 		var url = dataSet.hdata(1);
 		var table = dataSet.hdata(2);
 		var data = data+"&tabel="+table;
 $.confirm({
-'title': '_DELETE DIALOG BOX','message': " <strong>YOU WANT TO DELETE </strong><br /><font color=red>' "+ name +" ' </font> ",'buttons': {'Yes': {'class': 'special',
+'title': 'Permanently Delete Item','message': " <strong>ARE YOU SURE YOU WANT TO DELETE </strong><br /><font color=red>' "+ name +"?. </font> <br> <font size=1>This  Item will Permanently Delete from the Database</font>",'buttons': {'Yes': {'class': 'special',
 'action': function(){
-			loading('Checking');
-							 $('#preloader').html('Deleting...');
-							 if(type==0){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
-							  if(type==1){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
-								setTimeout("unloading();",900); 		 
+
+                               
+                                
+                             //loading('Checking');
+							 //$('#preloader').html('Deleting...');
+                              delete_data(controller_name,function_name,current_url);
+      
+                             //if(type==0){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
+                             //if(type==1){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
+			                 //setTimeout("unloading();",900);                     
+                                	 
 				 }},'No'	: {'class'	: ''}}});}
 
-	  function albumDelete(data,name,dataSet){
+
+function Archive(data,name,row,type,dataSet,controller_name,function_name){
+		var loadpage = dataSet.hdata(0);
+		var url = dataSet.hdata(1);
+		var table = dataSet.hdata(2);
+		var data = data+"&tabel="+table;
+$.confirm({
+'title': 'TRASH DIALOG BOX','message': " <strong>ARE YOU SURE YOU WANT TO SEND </strong> <br /><font color=red>' "+ name +" ' </font> <strong> TO THE TRASH? </strong> ",'buttons': {'Yes': {'class': 'special',
+'action': function(){
+			//loading('Checking');
+							 $('#preloader').html('Deleting...');
+                             archive_data(controller_name,function_name);
+                             if(controller_name != "product"){
+                                 setTimeout("window.location.href='" + base_url + controller_name + "/archived.html'");
+                             }
+                             //if(type==0){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
+						     //if(type==1){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
+			                 //setTimeout("unloading();",900); 		 
+				 }},'No'	: {'class'	: ''}}});}
+          
+function Restore(data,name,row,type,dataSet,controller_name,function_name,current_url){
+		var loadpage = dataSet.hdata(0);
+		var url = dataSet.hdata(1);
+		var table = dataSet.hdata(2);
+		var data = data+"&tabel="+table;
+$.confirm({
+'title': 'RESTORE DIALOG BOX','message': " <strong>ARE YOU SURE YOU WANT TO RESTORE </strong><br /><font color=red>' "+ name +"? ' </font> ",'buttons': {'Yes': {'class': 'special',
+'action': function(){
+			loading('Checking');
+							 //$('#preloader').html('Deleting...');
+                             restore_data(controller_name,function_name,current_url);
+                             
+							  //if(type==0){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
+							  //if(type==1){ row.slideUp(function(){   showSuccess('Success',5000); unloading(); }); return false;}
+							//	setTimeout("unloading();",900); 		 
+				 }},'No'	: {'class'	: ''}}});}
+
+function albumDelete(data,name,dataSet){
 			  var loadpage = dataSet.hdata(0);
 			  var row = dataSet.hdata(2);
 			  $.confirm({
@@ -1210,10 +1708,10 @@ $.confirm({
 						  loading('Checking',1);
 						  setTimeout("unloading()",1500); 	  
 				}},'No'	: {'class'	: ''}}});
-	  }
+}
 	  
 	  
-	  function loadalbum(albumid){
+function loadalbum(albumid){
 			  loading('Loading');
 			  $(' .albumImagePreview').show();
 			 imgRow()
@@ -1396,4 +1894,421 @@ $.confirm({
 		}else{
 			   $(' .column_left, .column_right ,.grid2,.grid3,.grid1').css({ width:"100%",float:"none",padding:"0",marginBottom: "20px" });
 		}
+};
+
+
+/********************************************************************
+ *  -Update Data
+ *******************************************************************/
+function updating_data(controller_name,form_name){
+        var action = base_url + controller_name + '/update';
+        
+        if(controller_name == "product_line"){ 
+    		var form_data = {
+    			ProductLineName: $("#ProductLineName-" + id).val(),
+    			description: $("#edt_description").val(),
+                id: $("#ProductLineId").val(),
+    			is_ajax: 1
+    		};
+        }
+        
+        if(controller_name == "branch"){ 
+    		var form_data = {
+                    branch_id: $("#branch_id").val(),
+                    branch_name: $("#branch_name-" + $("#branch_id").val()).val(),
+        			branch_location: $("#branch_location").val(),
+                    business_id: $("#branch_type").val(),
+        			is_ajax: 1
+                };
+        }
+        if(controller_name == "branch_type"){
+            var form_data = {
+                business_id:  $("#business_id").val(),
+                business_title: $("#business_title-" + $("#business_id").val()).val(),
+                ProductLineId: $("#ProductLineId").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "package"){
+            var form_data = {
+                package_id: $("#package_id").val(),
+                PackageName: $("#PackageName-" + $("#package_id").val()).val(),
+    			quantity: $("#quantity").val(),
+                discount: $("#discount").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "product_package"){
+            var form_data = {
+                product_id: $("#product_id").val(),
+    			package_id: $("#package_id").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "customer"){
+            var form_data = {
+                ProfilePic: $("#ProfilePic").val(),
+                FirstName: $("#FirstName").val(),
+                LastName: $("#LastName").val(),
+                MiddleName: $("#MiddleName").val(),
+                EmailAddress: $("#EmailAddress").val(),
+                HomeAddress: $("#HomeAddress").val(),
+                CompanyName: $("#CompanyName").val(),
+                ContactNumber: $("#ContactNumber").val(),
+                CustomerId: $('#CustomerId').val(),
+                Discount: $("#Discount").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "account"){
+           
+            var form_data = {
+                account_id: $('#account_id').val(),
+                ProfilePic: $("#ProfilePic").val(),
+                username: $("#username-" + id).val(),
+                password: $("#password").val(),
+                first_name: $("#first_name").val(),
+                last_name: $("#last_name").val(),
+                middle_name: $("#middle_name").val(),
+                email_address: $("#email_address").val(),
+                home_address: $("#home_address").val(),
+                contact_number: $("#contact_number").val(),
+                user_type: $("#user_type").val(),
+                branch_id: $("#branch_id").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "product"){
+            var form_data = {
+                ProductId: $("#ProductId").val(),
+                ProductName: $("#ProductName-" + $("#ProductId").val()).val(),
+    			Description: $("#Description").val(),
+                ProductPrice: $("#ProductPrice").val(),
+                ProductLineId: $("#ProductLineId").val(),
+                ProductUnit: $("#ProductUnit").val(),
+                ReorderPoint: $("#ReorderPoint").val(),
+                //ProductPrice: $("#ProductPrice").val(),
+                expiry_days: $("#expiry_days").val(),
+                vat: $("#vat").val(),
+                Ceiling: $("#Ceiling").val(),
+                Flooring: $("#Flooring").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "system"){
+            var form_data = {
+                
+            }
+        }
+    
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: form_data,
+			success: function(response)
+			{
+                
+                //alert('Update Response' + response);
+				if(response == "true"){
+				    //Show Success then Redirect
+                   $(form_name).hide(); 
+                   //loading('updating...',0); 
+                   //unloading();
+                   //showSuccess('Updated Successfully!',39000);
+                   //loading("Redirect..",0);
+                   //setTimeout("unloading()",9500);
+                   //setTimeout("window.location.href='" + base_url + controller_name + ".html'",2000);
+                   show_modal('Successfully Updated!','success','center',controller_name);
+				}else if(response == "false") {
+				    //alert(response);
+                     show_modal_warning(response);
+				}else{
+				     //showError(response + '!',39000);
+                     show_modal_warning(response);
+				}
+                
+            
+			}
+            });
+};
+
+/********************************************************************
+ *  -Update My Profile
+ *******************************************************************/
+function updating_data_myprofile(controller_name){
+        var action = base_url + controller_name + '/update/1';
+        
+        if(controller_name == "account"){
+           
+            var form_data = {
+                account_id: $('#account_id').val(),
+                ProfilePic: $("#ProfilePic").val(),
+                username: $("#username-" + $('#account_id').val()).val(),
+                password: $("#new_password").val(),
+                current_password: $("#current_password").val(),
+                first_name: $("#first_name").val(),
+                last_name: $("#last_name").val(),
+                middle_name: $("#middle_name").val(),
+                email_address: $("#email_address").val(),
+                home_address: $("#home_address").val(),
+                contact_number: $("#contact_number").val(),
+                user_type: $("#user_type").val(),
+    			is_ajax: 1
+            };
+        }
+        //alert('asdasd');
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: form_data,
+			success: function(response)
+			{
+                //alert('Response' + response);
+				if(response == "true"){
+				    //Show Success then Redirect
+                   loading('updating...',0); 
+                   unloading();
+                   showSuccess('Updated Successfully!',39000);
+                   loading("Redirect..",0);
+                   setTimeout("unloading()",9500);
+                   setTimeout("window.location.href='" + base_url + controller_name + "/view/" + $('#account_id').val() + "'",2000);
+				}else{
+				    showError(response,5000);
+				}
+			}
+            });
+};
+
+/********************************************************************
+ *  -Stock In Products
+ *******************************************************************/
+function stock_in_product(){
+    if(jQuery('#stock_in').validationEngine('validate') == true){
+    
+        var action = base_url + 'product/update_stock';
+        var form_data = {
+                ProductId: $('#ProductId').val(),
+                Quantity: $('#Quantity').val()
+        };
+        
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: form_data,
+			success: function(response)
+			{
+                    //alert('Response' + response);
+				if(response == "true"){
+                  $('#frm_cont').hide();
+                  show_modal('Updated Successfully','success','center','product/stock_in');
+                  //setTimeout("window.location.href='" + base_url +  "product/stock_in.html'",2000);
+				}
+                else
+                {
+				    show_modal_warning(response);
+				}
+			}
+            });
+   }
+   else
+   {
+       // show_modal_warning('Please Input Quantity to Stock In');
+   }
+};
+
+/********************************************************************
+ *  -Stock In Products
+ *******************************************************************/
+function update_price(){
+    if(jQuery('#stock_in').validationEngine('validate') == true){
+    
+        var action = base_url + 'product/update_price';
+        var form_data = {
+                ProductId: $('#ProductId').val(),
+                new_price: $('#new_price').val()
+        };
+        
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: form_data,
+			success: function(response)
+			{
+                    //alert('Response' + response);
+				if(response == "true"){
+                  $('#frm_cont').hide();
+                  show_modal('Updated Successfully','success','center','product/pricing_scheme');
+                  //setTimeout("window.location.href='" + base_url +  "product/stock_in.html'",2000);
+				}
+                else
+                {
+				    show_modal_warning(response);
+				}
+			}
+            });
+   }
+};
+
+/********************************************************************
+ *  -Save Data
+ *******************************************************************/
+function saving_data(controller_name,function_name,form_name){
+        var action =  base_url + controller_name + '/' + function_name;
+        if(controller_name == "product_line"){
+            var form_data = {
+                ProductLineName: $("#ProductLineName").val(),
+    			description: $("#description").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "package"){
+            var form_data = {
+                PackageName: $("#PackageName").val(),
+    			quantity: $("#quantity").val(),
+                discount: $("#discount").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "product_package"){
+            var form_data = {
+                product_id: $("#product_id").val(),
+    			package_id: $("#package_id").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "branch"){
+            var form_data = {
+                branch_name: $("#branch_name").val(),
+    			branch_location: $("#branch_location").val(),
+                branch_type: $("#branch_type").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "branch_type"){
+            var form_data = {
+                business_title: $("#business_title").val(),
+                ProductLineId: $("#ProductLineId").val(),
+    			is_ajax: 1
+            };
+        }
+     
+		if(controller_name == "customer"){
+            var form_data = {
+                ProfilePic: $("#ProfilePic").val(),
+                FirstName: $("#FirstName").val(),
+                LastName: $("#LastName").val(),
+                MiddleName: $("#MiddleName").val(),
+                EmailAddress: $("#EmailAddress").val(),
+                HomeAddress: $("#HomeAddress").val(),
+                CompanyName: $("#CompanyName").val(),
+                ContactNumber: $("#ContactNumber").val(),
+                Discount: $("#Discount").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        if(controller_name == "account"){
+           
+            var form_data = {
+                ProfilePic: $("#ProfilePic").val(),
+                username: $("#username").val(),
+                password: $("#password").val(),
+                first_name: $("#first_name").val(),
+                last_name: $("#last_name").val(),
+                middle_name: $("#middle_name").val(),
+                email_address: $("#email_address").val(),
+                home_address: $("#home_address").val(),
+                contact_number: $("#contact_number").val(),
+                branch_id: $("#branch_id").val(),
+                user_type: $("#user_type").val(),
+                register_date: $("#register_date").val(),
+    			is_ajax: 1
+            };
+        }
+        
+        
+        if(controller_name == "product"){
+            var form_data = {
+                ProductLineId: $("#ProductLineId").val(),
+                ProductName: $("#ProductName").val(),
+    			Description: $("#Description").val(),
+                ProductPrice: $("#ProductPrice").val(),
+                ProductUnit: $("#ProductUnit").val(),
+                ReorderPoint: $("#ReorderPoint").val(),
+                //ProductPrice: $("#ProductPrice").val(),
+                expiry_days: $("#expiry_days").val(),
+                vat: $("#vat").val(),
+                Ceiling: $("#Ceiling").val(),
+                Flooring: $("#Flooring").val(),
+    			is_ajax: 1
+            };
+        }
+        if(controller_name == "user_type"){
+            var form_data = {
+                name: $("#name").val(),
+                description: $("#description").val(),
+    			is_ajax: 1
+            };
+        }
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: form_data,
+			success: function(response)
+			{
+                //alert('Response = '+response);
+				if(response == 'true'){
+				    //Show Success then Redirect
+                    $(form_name).hide();
+                    //showSuccess('Data Save Successfully!',3000);
+                    //loading("Redirect..",0);
+                    //setTimeout("unloading()",9500);
+                    //setTimeout("window.location.href='" + base_url + controller_name + ".html'",2000);
+                    show_modal('Successfully Saved!','success','center',controller_name);
+				}else{
+				    //alert(response);
+                    //showError(response,5000);
+                    show_modal_warning(response);
+				}
+			}
+            });
+            
+            
 }
+/********************************************************************
+ *  -Save Package
+ *******************************************************************/
+function save_package(){
+    	$.ajax({
+			type: "POST",
+			url: action,
+			data: form_data,
+			success: function(response)
+			{
+                 //alert('Response = '+response);
+				if(response == 'true'){
+				    //Show Success then Redirect
+                    $(form_name).hide();
+                    showSuccess('Data Save Successfully!',3000);
+                    loading("Redirect..",0);
+                    setTimeout("unloading()",9500);
+                    setTimeout("window.location.href='" + base_url + controller_name + ".html'",2000);
+				}else{
+				    alert(response);
+				}
+                
+			}
+            });
+};
+
+

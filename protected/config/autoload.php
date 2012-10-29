@@ -64,7 +64,7 @@ $autoload['libraries'] = array('gtemplate','logs','registry','email', 'form_vali
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('security','text','file','html', 'url', 'form', 'email','language','breadcrumb','captcha','array','globalHelper','date');
+$autoload['helper'] = array('inflector','security','text','file','html', 'url', 'form', 'email','language','breadcrumb','captcha','array','globalHelper','date');
 
 
 /*

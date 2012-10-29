@@ -8,13 +8,15 @@
 	{
 	   
 		$CI = &get_instance();
-        // Load CAjax
+        $query = $CI->db->query('SELECT time_zone FROM '.$CI->db->dbprefix('config').' WHERE id = 0');
         
-		//$CI->config->set_item('base_url', 'localhost/');
-		//echo 'Success';
+        foreach($query->result() as $config){
+            return $config->time_zone;
+        }
+	    
 	}
 
-
+    date_default_timezone_set(load_config());
 
 
 

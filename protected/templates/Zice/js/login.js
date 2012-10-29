@@ -1,4 +1,18 @@
-$(document).ready(function () {	  
+$(document).ready(function () {
+              $('#password').keypress(function(e){
+                if (e.keyCode == '13'){
+                  login_now();
+                  return false;
+                }
+              });
+             $('#username_id').keypress(function(e){
+                if (e.keyCode == '13'){
+                  login_now();
+                  return false;
+                }
+              });
+
+    
 			$('#login').show().animate({   opacity: 1 }, 2000);
 			$('.logo').show().animate({   opacity: 1,top: '40%'}, 800,function(){			
 			$('.logo').show().delay(1200).animate({   opacity: 1,top: '12%' }, 300,function(){
@@ -18,15 +32,15 @@ $(document).ready(function () {
 				  $('.userbox').hide();				
 			   });
 	    });
-	    
-	$('#but_login').click(function(e){				
-		  if(document.formLogin.username.value == "" || document.formLogin.password.value == "")
+function login_now(){
+    		  if(document.formLogin.username.value == "" || document.formLogin.password.value == "")
 		  {
-			  showError("Please Input Username / Password");
-			  $('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
-			  $('.inner').trigger('startRumble');
-			  setTimeout('$(".inner").trigger("stopRumble")',500);
-			  setTimeout('hideTop()',5000);
+			  //showError("Please Input Username / Password");
+              show_modal_warning("Please Input Username / Password");
+			  //$('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
+			  //$('.inner').trigger('startRumble');
+			  ///setTimeout('$(".inner").trigger("stopRumble")',500);
+			  //setTimeout('hideTop()',5000);
 			  return false;
 		  }
           	
@@ -43,25 +57,25 @@ $(document).ready(function () {
 			data: form_data,
 			success: function(response)
 			{
-				if(response == 'success'){
-					/* $("#formLogin").slideUp('slow', function() {
-						$("#message").html("<p class='success'>You have logged in successfully!</p>");
-					}); */
+				if(response == true){
   		             hideTop();
-            		 loading('Checking',1);		
-            		 setTimeout( "unloading()", 2000 );
-            		 setTimeout( "Login()", 2500 );
+            		 //loading('Checking',1);		
+            		 //setTimeout( "unloading()", 2000 );
+            		 //setTimeout( "Login()", 0 );
+                     setTimeout( "window.location.href='do_login/"+$("#username_id").val()+"'", 0 );
 				}else{
-                  showError("Incorrect Username or password");
-    			  $('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
-    			  $('.inner').trigger('startRumble');
-    			  setTimeout('$(".inner").trigger("stopRumble")',500);
-    			  setTimeout('hideTop()',5000);
+                  //alert(response);
+                  //showError(response);
+                  show_modal_warning(response);
+    			  //$('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
+    			  //$('.inner').trigger('startRumble');
+    			 // setTimeout('$(".inner").trigger("stopRumble")',500);
+    			  //setTimeout('hideTop()',5000);
     			  return false;	
                   }
 			}
-            });		
-	});	
+            });	
+}	    
 
 		
 																 
@@ -76,7 +90,7 @@ function Login(){
 				});							  
 			 })	
      })	
-			setTimeout( "window.location.href='dashboard.html'", 3000 );
+			setTimeout( "window.location.href='do_login/"+$("#username_id").val()+"'", 3000 );
 }
 
 
@@ -108,3 +122,47 @@ function loading(name,overlay) {
  function unloading() {  
 		$('#preloader').fadeOut('fast',function(){ $('#overlay').fadeOut(); });
  }
+ 
+ 
+ function forgotpass(){
+    
+ 	  if($('#user_login').val() == "")
+ {
+			  showError("Please Input Username or E-mail");
+			  $('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
+			  $('.inner').trigger('startRumble');
+			  setTimeout('$(".inner").trigger("stopRumble")',500);
+			  setTimeout('hideTop()',5000);
+			  return false;
+ }else{
+          
+          
+        var action = base_url + 'account/do_forgotpass';
+   	    var form_data = {
+   	        user_login: $('#user_login').val(),
+            is_ajax: 1
+		};
+        
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: form_data,
+			success: function(response)
+			{
+			
+			  if(response == 'true'){
+			     
+			  }else{
+			     
+			     showError(response);
+                 $('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
+			     $('.inner').trigger('startRumble');
+                 setTimeout('$(".inner").trigger("stopRumble")',500);
+			     setTimeout('hideTop()',5000);
+			     return false;
+			  }
+              
+			}
+            });
+    }
+}

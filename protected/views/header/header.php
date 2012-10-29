@@ -4,8 +4,8 @@
 // media JAVASCRIPTS
 // Location: /media/<media_name>/js
 $media_javascripts = array(
-    'js/jquery-1.7.1.min', 
-	'js/jquery-1.7.1',
+    //'js/jquery-1.7.1.min', 
+	//'js/jquery-1.7.1',
     //'js/dragdrop', 
    // 'js/controls', 
    // 'js/scriptaculous',
@@ -27,25 +27,22 @@ $media_javascripts = array(
 
 // Load Media Javascripts
 // Location: media/
-echo '<!-- Start GTemplates -->';
 echo "\n";
-
 //if(page_level_access() != true): return false; endif;
    // page_level_access();
   // if(page_level_access() != true): return false; endif;
 ?>
-
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Supply Chain Management and Sales Monitoring System for JEF Enterprises" />
+<meta name="keywords" content="" />
 <meta name="author" content="John Gerome Baldonado" />
 <!-- [TITLE] -->
 <title><?php echo $this->config->item('site_name') ?> - Administration </title>
 <?php
-foreach ($media_javascripts as $scripts) {
+/* foreach ($media_javascripts as $scripts) {
 	echo '<script type="text/javascript" src="' . $this->config->base_url() .
 		'media/' . $scripts . '.js" ></script>';
 	echo "\n";
 }
-echo '<!-- End of GTemplates -->';
-
-/* End of File */
-/* Location: protected/views/include/header.inc */
+*/
+?>

@@ -4,6 +4,7 @@ html {
 	padding:0;
 
 }
+
 body {
 	margin: 0;
 	padding: 0;
@@ -11,10 +12,10 @@ body {
 	font-size: 12px;
 	color: #363636;
 	background-repeat: repeat-x;
-	background-image: url(../images/bg/pick_bg.jpg);
+	/*background-image: url(../images/bg/pick_bg.jpg); */
 }
 body.error {
-	background-image: url(../images/bg/pick_bg.error.jpg);
+	/*background-image: url(../images/bg/pick_bg.error.jpg);*/
 }
 body.dashborad {
 	background-image: url(../images/menu_bg.jpg);
@@ -523,28 +524,29 @@ ul.list_arrow2 li {
 		 news update
 ------------------------------------------------------------
 */
-#news_update ul li .temp_news {
-	width: 130px;
-	height: 98px;
+#news_update ul li .temp_news,#customer_update ul li .temp_news {
+	width: 100px;
+	height: 100px;
 	border: 1px #DDD solid;
 	padding:2px;
 	background-color:#FFF;
 	float: left;
 	margin-top: 5px;
 }
-#news_update ul li .temp_news img {
-	width: 130px;
+#news_update ul li .temp_news img,#customer_update ul li .temp_news img {
+	width: 100px;
+    height: 100px;
 }
-#news_update ul li .detail_news {
+#news_update ul li .detail_news, #customer_update ul li .detail_news {
 	border: 0px #DDD solid;
 	margin-left:145px;
 	margin-bottom: 10px;
 }
-#news_update ul li .detail_news .datepost {
+#news_update ul li .detail_news .datepost, #customer_update ul li .detail_news .datepost {
 	color: #BBB;
 	margin-right: 2px;
 }
-#news_update ul li .detail_news .morelink {
+#news_update ul li .detail_news .morelink p, #customer_update ul li .detail_news .morelink  {
 	display: inline-block;
 	background-image: url(../images/icon/link.png);
 	height: 15px;
@@ -555,7 +557,7 @@ ul.list_arrow2 li {
 	padding-bottom:2px;
 	border-left: 1px #DDD solid;
 }
-#news_update ul li .detail_news p {
+#news_update ul li .detail_news p, #customer_update ul li .detail_news p  {
 	height:42px;
 	overflow:hidden;
 	padding:0px;
@@ -1319,7 +1321,7 @@ label.iPhoneCheckLabelOff span {
 	filter:alpha(opacity=0);
 	top: 5%;
 	left: 50%;
-	margin-left: -95px;
+	margin-left: -140px;
 	z-index: 11;
 	background-color: #FFF;
 }
@@ -1389,7 +1391,7 @@ label.iPhoneCheckLabelOff span {
 	background: #000000 url(../images/top_bgrepeat.jpg) repeat-x;
 	text-shadow: 1px 0 0 #666666;
 	color: #ffffff;
-	position: fixed;
+	
 	z-index: 49;
 	-moz-box-shadow: 0px 2px 15px #333333;
 	-webkit-box-shadow: 0px 2px 15px #333333;
@@ -1415,6 +1417,7 @@ label.iPhoneCheckLabelOff span {
 	width: 100%;
 	overflow: hidden;
 }
+
 #header #account_info div {
 	border-left:1px #333333 solid;
 	padding:0 10px 0 20px;
@@ -1425,6 +1428,12 @@ label.iPhoneCheckLabelOff span {
 	line-height:47px;
 	background-repeat: no-repeat;
 }
+#header #account_info .notification{
+    background: transparent ;
+    height: 35px;
+    border-left: 0px;
+}
+
 #header #account_info div:last-child {
 	border-left:1px #333333 solid;
 	padding:0 15px 0 15px;
@@ -1460,7 +1469,7 @@ label.iPhoneCheckLabelOff span {
 	margin-top: 8px;
 }
 #shadowhead {
-	background-image: url(../images/bg/pick_bg.jpg);
+	/*background-image: url(../images/bg/pick_bg.jpg);*/
 	height:58px;
 	background-repeat:repeat-x;
 	position: absolute;
@@ -1479,7 +1488,7 @@ label.iPhoneCheckLabelOff span {
 	float: left;
 	position:absolute;
 	left:0px;
-	top: 45px;
+	top: 145px;
 	z-index: 48;
 }
 .main_menu {
@@ -1932,6 +1941,21 @@ a#hide_menu:hover, a#show_menu:hover, a#show_menu_icon:hover, a#hide_menu_icon:h
 	margin-top: -75px;
 	margin-left: 40px;
 }
+#header #account_info a .notification_top {
+	color: #ffffff;
+	font-weight: bold;
+	text-shadow: 1px 0 0 #333333;
+	background: transparent url('../images/bg_notification.png') no-repeat center;
+	width: 37px;
+	height: 37px;
+	text-align: center;
+	line-height: 37px;
+	position: absolute;
+	margin-top: -10px;
+	margin-left: -40px;
+    border-left: 0px;
+    padding: 0pt 10px 0pt 10px;
+}
 #content {
 	margin-left:240px;
 	padding: 0px 10px 0 0;
@@ -1944,7 +1968,7 @@ a#hide_menu:hover, a#show_menu:hover, a#show_menu_icon:hover, a#hide_menu_icon:h
 #content .inner .logo {
 	float: left;
 	padding: 45px 0 0 0;
-	background-image: url(../images/logo/logo_admin.png);
+/*	background-image: url(../images/logo/logo_admin.png); */
 	width: 191px;
 	height: 44px;
 	background-repeat: no-repeat;
@@ -3010,9 +3034,9 @@ a.link {
 	width:55px;
 	height:100%;
 	top:-1px;
-	display:none;
+	/* display:none; */
 }
-.comment .toolMsg span.iconReply, .comment .toolMsg span.iconEdit, .comment .toolMsg span.iconDelete {
+.comment .toolMsg span.iconReply, .comment .toolMsg span.iconEdit, .comment .toolMsg span.iconDelete, .comment .toolMsg span.iconTrash, .comment .toolMsg span.iconRestore {
 	position: absolute;
 	display:block;
 	width:20px;
@@ -3036,6 +3060,16 @@ a.link {
 .comment .toolMsg span.iconDelete {
 	background-image:url(../images/icon/icon_delete_comment.png);
 	margin-top:3px;
+}
+.comment .toolMsg span.iconTrash {
+	background-image:url(../images/icon/bin.png);
+	margin-top:3px;
+}
+.comment .toolMsg span.iconRestore {
+    margin-top:-22px;
+	margin-left:15px;
+	background-image:url(../images/icon/gray_18/reload.png);
+
 }
 .comment .reply {
 	padding-left:40px;
@@ -3293,6 +3327,15 @@ margin-left:35px;
 .boxMove {
 	margin-top:140px;
 }
+.Read{
+    color: #000;
+}
+.Unread{
+    font-weight: bold;
+    color: #447ced;
+}
+.Approved{ color: #2f6b0a; }
+.Unapproved{ color: #c82626; }
 
 @media only screen and (max-width: 1024px) {
 
@@ -3300,4 +3343,127 @@ margin-left:35px;
  margin-top:0px;
 }
 
+}
+
+#banner{
+    height: 100px;
+    width: 100%;
+    background: url('../images/banner_bg.gif') repeat-x;
+}
+
+.rqd { color: red; }
+.alcenter { text-align: center; }
+.cbo_style {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+/* JfontSize */
+.jfontsize-button {
+  font-weight: bold;
+  padding: 3px;
+  color: #cc0000;
+  border: solid 1px #333;
+  background: #000;
+}
+
+.jfontsize-button:hover {
+  text-decoration: none;
+  background: #333;
+  color: #fff;
+  border: solid 1px #333;
+}
+
+.jfontsize-disabled, .jfontsize-disabled:hover {
+  color: #aaa;
+  border: solid 1px #eee;
+  background: #eee;
+}
+
+.some-class-name {
+  margin: 20px 0 0 0;
+}
+.tags{
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    color: #666;
+    padding: 2px;
+    border-radius: 5px 5px 5px 5px;
+    
+}
+.unread_msg{
+    background: #EAF7E1;
+}
+#order_msg{
+    cursor: pointer;
+}
+.order_link{
+    color: #aaa;
+}
+.order_link:hover{
+    color: #aaa;
+}
+#order_msg:hover{
+    background: #EDF7FE;
+}
+/* Noty */
+.btn{
+    background-repeat: repeat-x;
+    text-shadow: 0pt -1px 0pt rgba(0, 0, 0, 0.25);
+    color: rgb(255, 255, 255);
+    padding: 4px 10px;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.58));
+    cursor: pointer;
+}
+.btn-primary{
+    border: 1px solid rgb(105, 164, 77);
+    background-color: rgb(155, 198, 82);
+    outline: medium none;
+    text-transform: capitalize;
+}
+.btn-warning-ok{
+    border: 1px solid #FCD04E;
+    background-color: #FCDB72;
+    outline: medium none;
+    text-transform: capitalize;
+    color: #826200;
+}
+.btn-information-ok{
+    border: 1px solid #62CEFC;
+    background-color: #57B7E2;
+    outline: medium none;
+    text-transform: capitalize;
+    color: #FFF;
+}
+.btn-danger{
+    border: 1px solid #D63833;
+    background-color: #BD362F;
+}
+.noty_msg{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.noty_icon{
+    width: 25px;
+    height: 25px; 
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px; 
+}
+.noty_msg_success{
+    background-image: url(../images/checkmark2.png);
+}
+.noty_msg_warning{
+    background-image: url(../images/help.png);
+}
+.noty_msg_info{
+    background-image: url(../images/info.png);
+}
+
+/* Class Default cursor */
+.d_cursor{
+    cursor: default;
 }

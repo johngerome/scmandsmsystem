@@ -11,6 +11,13 @@
                     "alertTextCheckboxe": "* This checkbox is required",
                     "alertTextDateRange": "* Both date range fields are required"
                 },
+                "required2": { // Add your regex rules here, you can take telephone as an example
+                    "regex": "none",
+                    "alertText": "* This field is required if you wish to change your account details.",
+                    "alertTextCheckboxMultiple": "* Please select an option",
+                    "alertTextCheckboxe": "* This checkbox is required",
+                    "alertTextDateRange": "* Both date range fields are required"
+                },
                 "dateRange": {
                     "regex": "none",
                     "alertText": "* Invalid ",
@@ -65,6 +72,10 @@
                     "regex": "none",
                     "alertText": "* Fields do not match"
                 },
+                "creditCard": {
+                    "regex": "none",
+                    "alertText": "* Invalid credit card number"
+                },
                 "phone": {
                     // credit: jquery.h5validate.js / orefalo
                     "regex": /^([\+][0-9]{1,3}[ \.\-])?([\(]{1}[0-9]{2,6}[\)])?([0-9 \.\-\/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/,
@@ -79,10 +90,16 @@
                     "regex": /^[\-\+]?\d+$/,
                     "alertText": "* Not a valid integer"
                 },
+                
                 "number": {
                     // Number, including positive, negative, and floating decimal. credit: orefalo
                     "regex": /^[\-\+]?(([0-9]+)([\.,]([0-9]+))?|([\.,]([0-9]+))?)$/,
                     "alertText": "* Invalid floating decimal number"
+                },
+                "price": {
+                    // Number, including positive, negative, and floating decimal. credit: orefalo
+                    "regex": /^[\.]?(([0-9]+)([\.,]([0-9]+))?|([\.,]([0-9]+))?)$/,
+                    "alertText": "* Invalid number"
                 },
                 "date": {
                     "regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/,
@@ -113,15 +130,24 @@
                     "url": "ajaxValidateFieldUser",
                     // you may want to pass extra data on the ajax call
                     "extraData": "name=eric",
-       //             "alertText": "* This user is already taken",
+                    "alertText": "* This user is already taken",
                     "alertTextLoad": "* Validating, please wait"
                 },
 				"ajaxUserCallPhp": {
-                    "url": "ajaxvalidate/ajaxValidateFieldUser.php",
+                    "url": "phpajax/ajaxValidateFieldUser.php",
                     // you may want to pass extra data on the ajax call
                     "extraData": "name=eric",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
-             //       "alertTextOk": "* This username is available",
+                    "alertTextOk": "* This username is available",
+                    "alertText": "* This user is already taken",
+                    "alertTextLoad": "* Validating, please wait"
+                },
+					"ajaxPasswordCallPhp": {
+                    "url": "phpajax/ajaxValidateFieldPassword.php",
+                    // you may want to pass extra data on the ajax call
+                    "extraData": "name=eric",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    "alertTextOk": "* This username is available",
                     "alertText": "* This user is already taken",
                     "alertTextLoad": "* Validating, please wait"
                 },
@@ -131,30 +157,182 @@
                     // error
                     "alertText": "* This name is already taken",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
-            //        "alertTextOk": "* This name is available",
+                    "alertTextOk": "* This name is available",
                     // speaks by itself
                     "alertTextLoad": "* Validating, please wait"
                 },
+                
+                //--------------------------------------------------------------------------------
+                //---------------------------       Product Line    ------------------------------
+                "ajaxProductLineName": {
+                    // remote json service location
+                    "url": base_url + "product_line/ajaxProductLineName",
+                    // error
+                    "alertText": "* This Product Line Name is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Product Line Name is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                "ajaxProductLineNameEdit": {
+                    // remote json service location
+                    "url": base_url + "product_line/ajaxProductLineNameEdit",
+                    
+                    // error
+                    "alertText": "* This Product Line Name is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Product Line Name is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                //--------------------------------------------------------------------------------
+                //---------------------------           Branch      ------------------------------
+                "ajaxBranchName": { 
+                    // remote json service location
+                    "url": base_url + "branch/ajaxBranchName",
+                    // error
+                    "alertText": "* This Branch Name is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Branch Name is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                "ajaxBranchNameEdit": { 
+                    // remote json service location
+                    "url": base_url + "branch/ajaxBranchNameEdit",
+                    // error
+                    "alertText": "* This Branch Name is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Branch Name is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                
+                "ajaxBranchTypeName": { 
+                    // remote json service location
+                    "url": base_url + "branch_type/ajaxBranchTypeName",
+                    // error
+                    "alertText": "* This Branch Type Name is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Branch Name is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                "ajaxBranchTypeNameEdit": { 
+                    // remote json service location
+                    "url": base_url + "branch_type/ajaxBranchTypeNameEdit",
+                    // error
+                    "alertText": "* This Branch Type Name is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Branch Name is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                
+                //--------------------------------------------------------------------------------
+                //---------------------------         Account       ------------------------------
+                "ajaxUsername": { 
+                    // remote json service location
+                    "url": base_url + "account/ajaxUsername",
+                    // error
+                    "alertText": "* This Username is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                "ajaxUsernameEdit": { 
+                    // remote json service location
+                    "url": base_url + "account/ajaxUsernameEdit",
+                    // error
+                    "alertText": "* This Username is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                
+                //--------------------------------------------------------------------------------
+                //---------------------------        User Type       ------------------------------
+                "ajaxUserTypeName": { 
+                    // remote json service location
+                    "url": base_url + "user_type/ajaxUserTypeName",
+                    // error
+                    "alertText": "* This User type is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                "ajaxUserTypeNameEdit": { 
+                    // remote json service location
+                    "url": base_url + "user_type/ajaxUserTypeNameEdit",
+                    // error
+                    "alertText": "* This User type is already exists",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                
+                //------------------------------------------------------------------------------------------
+                //---------------------------         Product       ------------------------------
+                
+                "ajaxProductName": { 
+                    // remote json service location
+                    "url": base_url + "product/ajaxProductName",
+                    // error
+                    "alertText": "* Product Name Alredy Exists!",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                "ajaxProductNameEdit": { 
+                    // remote json service location
+                    "url": base_url + "product/ajaxProductNameEdit",
+                    // error
+                    "alertText": "* Product Name Alredy Exists!",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                //------------------------------------------------------------------------------------------
+                //---------------------------         Package       ------------------------------
+                "ajaxProductPackageName": { 
+                    // remote json service location
+                    "url": base_url + "package/ajaxProductPackageName",
+                    // error
+                    "alertText": "* This Package Name Alredy Exists!",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                "ajaxProductPackageNameEdit": { 
+                    // remote json service location
+                    "url": base_url + "package/ajaxProductPackageName",
+                    // error
+                    "alertText": "* This Package Name Alredy Exists!",
+                    // if you provide an "alertTextOk", it will show as a green prompt when the field validates
+                    //"alertTextOk": "* This Username is available",
+                    // speaks by itself
+                    "alertTextLoad": "* Validating, please wait"
+                },
+                
 				 "ajaxNameCallPhp": {
 	                    // remote json service location
-	                    "url": "ajaxvalidate/ajaxValidateFieldName.php",
+	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* This name is already taken",
-				//		"alertTextOk": "* This name is available",
-	                    // speaks by itself
-	                    "alertTextLoad": "* Validating, please wait"
-	                },
-				 "ajaxEmailCallPhp": {
-	                    // remote json service location
-	                    "url": "ajaxvalidate/ajaxValidateFieldEmail.php",
-	                    // error
-	                    "alertText": "* This Email is already taken",
 	                    // speaks by itself
 	                    "alertTextLoad": "* Validating, please wait"
 	                },
                 "validate2fields": {
                     "alertText": "* Please input HELLO"
                 },
+                
 	            //tls warning:homegrown not fielded 
                 "dateFormat":{
                     "regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$|^(?:(?:(?:0?[13578]|1[02])(\/|-)31)|(?:(?:0?[1,3-9]|1[0-2])(\/|-)(?:29|30)))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(?:(?:0?[1-9]|1[0-2])(\/|-)(?:0?[1-9]|1\d|2[0-8]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(0?2(\/|-)29)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:\d\d)?(?:0[48]|[2468][048]|[13579][26]))$/,
@@ -172,5 +350,7 @@
             
         }
     };
+
     $.validationEngineLanguage.newLang();
+    
 })(jQuery);

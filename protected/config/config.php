@@ -14,9 +14,9 @@
 | path to your installation.
 |
 */
-$config['theme_path'] = 'http://localhost/scmandsmsystem/protected';
+$config['theme_path'] = 'http://localhost/gsystem/protected';
 
-$config['base_url'] = 'http://localhost/scmandsmsystem/';
+$config['base_url'] = 'http://localhost/gsystem/';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -27,7 +27,7 @@ $config['base_url'] = 'http://localhost/scmandsmsystem/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ $config['uri_protocol'] = 'AUTO';
 | http://codeigniter.com/user_guide/general/urls.html
 */
 
-$config['url_suffix'] = '';
+$config['url_suffix'] = '.html';
 
 /*
 |--------------------------------------------------------------------------
@@ -127,7 +127,7 @@ $config['subclass_prefix'] = 'MY_';
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-()';
 
 
 /*
@@ -246,14 +246,14 @@ $config['encryption_key'] = 'c4ca4238a0b923820dcc509a6f75849b'; //32 characters 
 |
 */
 $config['sess_cookie_name']  = 'ci_session';
-$config['sess_expiration']  = 3600; // Default: 3600 = 1 Hour
+$config['sess_expiration']  = 986400; // Default: 3600 = 1 Hour 21 Hour ni
 $config['sess_expire_on_close'] = FALSE;
 $config['sess_encrypt_cookie'] = FALSE;
 $config['sess_use_database'] = TRUE;
 $config['sess_table_name']  = 'tbx101_sessions';
 $config['sess_match_ip']  = FALSE;
 $config['sess_match_useragent'] = TRUE;
-$config['sess_time_to_update'] = 300;
+$config['sess_time_to_update'] = 6400;
 
 /*
 |--------------------------------------------------------------------------
@@ -359,7 +359,8 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 //$config['view_path'] = 'gerome.bookstore/'.APPPATH.'views/';
 $config['site_name'] = 'Supply Chain Management and Sales Monitoring System';
-$config['copyrighted'] = '2012';
+$config['company'] = '0000'; // Check Global Config
+$config['copyrighted'] = '0000'; // Check Global Config
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */                

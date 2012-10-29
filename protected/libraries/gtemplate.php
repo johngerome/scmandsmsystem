@@ -10,6 +10,7 @@
      var $toolbar;
      var $bread_crumb = true;
      var $errorMsg;
+     var $id;
 
      public function __construct()
      {
@@ -21,6 +22,7 @@
          $this->toolbar;
          $this->bread_crumb;
          $this->errorMsg;
+         $this->id;
 
      }
 
@@ -66,9 +68,9 @@
 
      public function get_top_header()
      {
-         
-             $this->CI->load->view('views/header/top_header');
-         
+
+         $this->CI->load->view('views/header/top_header');
+
      }
 
      /**
@@ -119,11 +121,30 @@
       * Set BreadCrumbs Value
       *  @value True or False
       */
+     public function set_id($param)
+     {
+         $this->id = $param;
+     }
+
+     /**
+      *  Get breadCrumbs
+      *  @return boolean Or brradCrumb itself
+      */
+     public function get_id()
+     {
+          echo '<script type="text/javascript">
+                id = '.$this->id.';
+                </script>';
+     }
+
+     /**
+      * Set BreadCrumbs Value
+      *  @value True or False
+      */
      public function set_breadCrumbs($param)
      {
          $this->bread_crumb = $param;
      }
-
      /**
       * Set and Get Heading Title
       * @return boolean Or Heading Title that been set
@@ -143,14 +164,24 @@
              echo $this->heading_title;
          }
      }
+
      /**
       * 
       */
      function theme_path($param = false)
      {
          $CI = &get_instance();
-         return $CI->config->base_url() . '/protected/templates/' . $CI->config->item('template_name') . '/' .
-             $param;
+         return $CI->config->base_url() . '/protected/templates/' . $CI->config->item('template_name') .
+             '/' . $param;
+     }
+
+     /**
+      * 
+      */
+     function reponse_path($param = false)
+     {
+         $CI = &get_instance();
+         return $CI->config->base_url() . '/protected/response/' . $param;
      }
 
      /**
