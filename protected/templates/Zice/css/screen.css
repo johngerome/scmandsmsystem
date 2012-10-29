@@ -1,0 +1,74 @@
+
+
+/* =Navigation
+============================================================================== */			
+	/* =Shadow Nav
+	-------------------------------------------------------------------------- */
+		
+		#nav-shadow {
+			margin: 0 auto;
+			padding: 0px 0 0 0px;
+			width: 100%;
+			min-height: 100px;
+			text-align: center;
+			list-style: none;
+			}
+			
+		#nav-shadow li {
+			margin-right: 15px;
+            margin-top: 20px;
+			width: 81px;
+			height: 72px;
+			position: relative;
+			float: left;
+			}
+			
+		#nav-shadow a, #nav-shadow a:visited, #nav-shadow a, #nav-shadow a:hover {
+			margin: 0 auto;
+			width: 59px;
+			height: 59px;
+			text-indent: -9999px;
+			overflow: hidden;
+			background: url(../images/icons.png) no-repeat;
+			display: block;
+			position: relative;
+			z-index: 2;
+			}
+			
+		/* Button Colors */
+		
+		#nav-shadow li.button-color-1 a {
+            width: 90px; height: 90px;
+		    background: url('../images/tlbr_icon/add_new_user.png') no-repeat;
+			
+			}
+			
+		#nav-shadow li.button-color-2 a {
+			width: 90px; height: 90px;
+		    background: url('../images/tlbr_icon/customer_manager.png') no-repeat;
+			}
+			
+		#nav-shadow li.button-color-3 a {
+			width: 90px; height: 90px;
+		    background: url('../images/tlbr_icon/reports_manager.png') no-repeat;
+			}
+			
+		#nav-shadow li.button-color-4 a {
+			width: 90px; height: 90px;
+		    background: url('../images/tlbr_icon/product_line_manager.png') no-repeat;
+			}
+        #nav-shadow li.button-color-5 a {
+			width: 90px; height: 90px;
+		    background: url('../images/tlbr_icon/product_manager.png') no-repeat;
+			} 
+            
+        #nav-shadow li.button-color-6 a {
+			width: 90px; height: 90px;
+		    background: url('../images/tlbr_icon/branch_manager.png') no-repeat;
+			} 
+        #nav-shadow li.button-color-7 a {
+			width: 90px; height: 90px;
+		    background: url('../images/tlbr_icon/config.png') no-repeat;
+			}       
+            
+			

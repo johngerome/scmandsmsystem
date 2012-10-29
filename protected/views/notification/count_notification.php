@@ -1,0 +1,1 @@
+<?php echo count_unread_notification(); ?>
